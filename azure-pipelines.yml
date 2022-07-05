@@ -21,15 +21,4 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
-- task: AzureResourceManagerTemplateDeployment@3
-  inputs:
-    deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: 'nicolas-service'
-    subscriptionId: $(SI)
-    action: 'Create Or Update Resource Group'
-    resourceGroupName: $(RG)
-    templateLocation: 'Linked artifact'
-    csmFile: '$(Pipeline.Workspace)/databricks/iac/databricks.json'
-    deploymentMode: 'Incremental'
-
 
