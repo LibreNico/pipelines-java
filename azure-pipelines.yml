@@ -25,9 +25,9 @@ steps:
   inputs:
     deploymentScope: 'Resource Group'
     azureResourceManagerConnection: 'nicolas-service'
-    subscriptionId: 'cebb7b05-9e26-4fa4-a9e6-7cd948b9b6ca'
+    subscriptionId: $(SI)
     action: 'Create Or Update Resource Group'
-    resourceGroupName: $(Test_RG)
+    resourceGroupName: $(RG)
     templateLocation: 'Linked artifact'
     csmFile: '$(Pipeline.Workspace)/databricks/iac/databricks.json'
     deploymentMode: 'Incremental'
