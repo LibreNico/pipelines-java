@@ -21,13 +21,15 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
-- task: 
+- task: AzureResourceManagerTemplateDeployment@3
   inputs:
-    SourcePath: 'my/path'
-    azureSubscription: ‘AzureSubscription’
-    Destination: 'AzureVMs'
-    storage: 'my-storage'
-    resourceGroup: 'my-rg'
-    vmsAdminUserName: $(VMS_USER)
-    vmsAdminPassword: $(VMS_PASS)
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'Isha_ABI'
+    subscriptionId: 'cebb7b05-9e26-4fa4-a9e6-7cd948b9b6ca'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: $(Test_RG)
+    templateLocation: 'Linked artifact'
+    csmFile: '$(Pipeline.Workspace)/databricks/iac/databricks.json'
+    deploymentMode: 'Incremental'
+
 
