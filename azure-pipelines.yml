@@ -24,7 +24,6 @@ steps:
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: 'Isha_ABI'
     subscriptionId: 'cebb7b05-9e26-4fa4-a9e6-7cd948b9b6ca'
     action: 'Create Or Update Resource Group'
     resourceGroupName: $(Test_RG)
